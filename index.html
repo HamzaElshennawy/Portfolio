@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio - [Your Name]</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #0d0d0d;
+        color: #fff;
+        text-align: center;
+      }
+      header {
+        padding: 80px 20px;
+        background: linear-gradient(135deg, #ff416c, #ff4b2b);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+      header h1 {
+        font-size: 3rem;
+        font-weight: 700;
+      }
+      section {
+        padding: 100px 20px;
+        max-width: 1000px;
+        margin: auto;
+      }
+      .card {
+        background: #1e1e1e;
+        padding: 30px;
+        margin: 20px 0;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
+      }
+      a {
+        color: #ff4b2b;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .socials {
+        margin-top: 30px;
+      }
+      .socials a {
+        margin: 0 15px;
+        color: #fff;
+        font-size: 32px;
+        transition: color 0.3s;
+      }
+      .socials a:hover {
+        color: #ff4b2b;
+      }
+      footer {
+        padding: 30px;
+        background: #1e1e1e;
+        margin-top: 50px;
+        font-size: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>[Your Name]</h1>
+      <p>Data Architect | Full-Stack Developer | IoT Enthusiast</p>
+    </header>
+
+    <section id="about" class="card">
+      <h2>About Me</h2>
+      <p>
+        I'm a Data Architect and Data Flow Engineer at Aria Technologies,
+        specializing in MongoDB and automation for robotic arms in factories.
+        Passionate about full-stack development, IoT, and machine learning.
+      </p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="card">
+        <p>
+          <strong>Internal Tool for Production Line Data</strong> - Real-time
+          visualization using MongoDB, MQTT, Next.js, PostgreSQL.
+        </p>
+      </div>
+      <div class="card">
+        <p>
+          <strong>Villa Green Beach</strong> - A rental app for North Coast
+          apartments.
+        </p>
+      </div>
+      <div class="card">
+        <p>
+          <strong>AALAA Designs</strong> - E-commerce platform using Next.js,
+          PostgreSQL, ShadCN.
+        </p>
+      </div>
+      <div class="card">
+        <p>
+          <strong>Captive Portal</strong> - Custom Wi-Fi authentication system
+          for a coffee shop.
+        </p>
+      </div>
+      <div class="card">
+        <p>
+          <strong>Chatbot AI</strong> - Experimenting with conversational AI
+          models.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <p>
+        Email:
+        <a href="mailto:your.email@example.com">your.email@example.com</a>
+      </p>
+      <div class="socials">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 [Your Name]. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
