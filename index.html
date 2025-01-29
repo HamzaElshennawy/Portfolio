@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio - [Your Name]</title>
+    <title>Portfolio - Hamza Elshennawy</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -32,13 +32,13 @@
         font-weight: 700;
       }
       section {
-        padding: 100px 20px;
-        max-width: 1000px;
+        padding: 80px 5%;
+        max-width: 1200px;
         margin: auto;
       }
       .card {
         background: #1e1e1e;
-        padding: 30px;
+        padding: 40px;
         margin: 20px 0;
         border-radius: 12px;
         box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
@@ -47,6 +47,11 @@
       .card:hover {
         transform: translateY(-5px);
         box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
       }
       a {
         color: #ff4b2b;
@@ -74,12 +79,26 @@
         margin-top: 50px;
         font-size: 1rem;
       }
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 2rem;
+        }
+        section {
+          padding: 60px 10px;
+        }
+        .card {
+          padding: 20px;
+        }
+      }
     </style>
   </head>
   <body>
     <header>
-      <h1>[Your Name]</h1>
-      <p>Data Architect | Full-Stack Developer | IoT Enthusiast</p>
+      <h1>Hamza Elshennawy</h1>
+      <p>
+        Data Architect | Full-Stack Developer | IoT Enthusiast | Mobile
+        developer
+      </p>
     </header>
 
     <section id="about" class="card">
@@ -93,35 +112,30 @@
 
     <section id="projects">
       <h2>Projects</h2>
-      <div class="card">
-        <p>
-          <strong>Internal Tool for Production Line Data</strong> - Real-time
-          visualization using MongoDB, MQTT, Next.js, PostgreSQL.
-        </p>
-      </div>
-      <div class="card">
-        <p>
-          <strong>Villa Green Beach</strong> - A rental app for North Coast
-          apartments.
-        </p>
-      </div>
-      <div class="card">
-        <p>
-          <strong>AALAA Designs</strong> - E-commerce platform using Next.js,
-          PostgreSQL, ShadCN.
-        </p>
-      </div>
-      <div class="card">
-        <p>
-          <strong>Captive Portal</strong> - Custom Wi-Fi authentication system
-          for a coffee shop.
-        </p>
-      </div>
-      <div class="card">
-        <p>
-          <strong>Chatbot AI</strong> - Experimenting with conversational AI
-          models.
-        </p>
+      <div class="grid">
+        <div class="card">
+          <p>
+            <strong>Internal Tool for Production Line Data</strong> - Real-time
+            visualization using MongoDB, MQTT, Next.js, PostgreSQL.
+          </p>
+        </div>
+        <div class="card">
+          <p>
+            <strong>Agrly</strong> - A rental app for North Coast apartments.
+          </p>
+        </div>
+        <div class="card">
+          <p>
+            <strong>AALAA Designs</strong> - E-commerce platform using Next.js,
+            PostgreSQL, ShadCN.
+          </p>
+        </div>
+        <div class="card">
+          <p>
+            <strong>Captive Portal</strong> - Custom Wi-Fi authentication system
+            for a coffee shop.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -129,7 +143,7 @@
       <h2>Contact</h2>
       <p>
         Email:
-        <a href="mailto:your.email@example.com">your.email@example.com</a>
+        <a href="mailto:h.elshennawy@nu.edu.eg">h.elshennawy@nu.edu.eg</a>
       </p>
       <div class="socials">
         <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -137,9 +151,5 @@
         <a href="#"><i class="fab fa-twitter"></i></a>
       </div>
     </section>
-
-    <footer>
-      <p>&copy; 2025 [Your Name]. All rights reserved.</p>
-    </footer>
   </body>
 </html>
