@@ -6,150 +6,1110 @@
     <title>Portfolio - Hamza Elshennawy</title>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <style>
-      body {
-        font-family: "Poppins", sans-serif;
+      :root {
+        --primary: #ff4b2b;
+        --primary-gradient: linear-gradient(135deg, #ff416c, #ff4b2b);
+        --dark-bg: #0a0a0a;
+        --card-bg: #1a1a1a;
+        --nav-bg: rgba(26, 26, 26, 0.95);
+        --text: #ffffff;
+        --text-secondary: #cccccc;
+        --transition: all 0.3s ease;
+        --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        --border-radius: 12px;
+      }
+
+      * {
         margin: 0;
         padding: 0;
-        background-color: #0d0d0d;
-        color: #fff;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--dark-bg);
+        color: var(--text);
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+
+      /* Header Styles */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: var(--dark-bg);
+        position: relative;
+        overflow: hidden;
+        padding: 0 20px;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--primary-gradient);
+        clip-path: polygon(0 0, 100% 0, 100% 65%, 0 100%);
+        opacity: 0.8;
+        z-index: 0;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
         text-align: center;
+        max-width: 800px;
       }
-      header {
-        padding: 80px 20px;
-        background: linear-gradient(135deg, #ff416c, #ff4b2b);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      }
-      header h1 {
-        font-size: 3rem;
+
+      .hero h1 {
+        font-size: 4rem;
         font-weight: 700;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        animation: fadeInDown 1s ease-out;
       }
-      section {
-        padding: 80px 5%;
+
+      .hero p {
+        font-size: 1.5rem;
+        max-width: 700px;
+        margin: 0 auto 40px;
+        color: var(--text);
+        animation: fadeInUp 1s ease-out 0.3s;
+        animation-fill-mode: both;
+      }
+
+      .scroll-down {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: bounce 2s infinite;
+        color: var(--text);
+        font-size: 2rem;
+        z-index: 1;
+      }
+
+      /* Navigation */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: var(--nav-bg);
+        padding: 20px;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+      }
+
+      nav.scrolled {
+        padding: 15px 20px;
+      }
+
+      .nav-container {
         max-width: 1200px;
-        margin: auto;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
-      .card {
-        background: #1e1e1e;
-        padding: 40px;
-        margin: 20px 0;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
-        transition: transform 0.3s, box-shadow 0.3s;
-      }
-      .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
-      }
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-      }
-      a {
-        color: #ff4b2b;
+
+      .logo {
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: var(--primary);
         text-decoration: none;
-        font-weight: 600;
       }
-      a:hover {
-        text-decoration: underline;
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 30px;
       }
-      .socials {
+
+      nav ul li a {
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 500;
+        position: relative;
+        padding: 5px 0;
+        transition: var(--transition);
+      }
+
+      nav ul li a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: var(--transition);
+      }
+
+      nav ul li a:hover {
+        color: var(--primary);
+      }
+
+      nav ul li a:hover::after {
+        width: 100%;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--text);
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* Section Styles */
+      section {
+        padding: 100px 5%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+        text-align: center;
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      section h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: var(--primary-gradient);
+      }
+
+      /* About Section */
+      .about-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+      }
+
+      .about-image {
+        position: relative;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--card-shadow);
+      }
+
+      .about-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: var(--transition);
+      }
+
+      .about-image::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--primary-gradient);
+        opacity: 0.3;
+        z-index: 1;
+      }
+
+      .about-content {
+        padding: 20px;
+      }
+
+      .about-content h3 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: var(--primary);
+      }
+
+      .about-content p {
+        margin-bottom: 20px;
+        color: var(--text-secondary);
+      }
+
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
         margin-top: 30px;
       }
-      .socials a {
-        margin: 0 15px;
-        color: #fff;
-        font-size: 32px;
-        transition: color 0.3s;
+
+      .skill-tag {
+        background: var(--card-bg);
+        color: var(--text);
+        padding: 8px 15px;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        border: 1px solid rgba(255, 75, 43, 0.3);
+        transition: var(--transition);
       }
-      .socials a:hover {
-        color: #ff4b2b;
+
+      .skill-tag:hover {
+        background: var(--primary);
+        transform: translateY(-3px);
       }
+
+      /* Projects Section */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 20px;
+      }
+
+      .project-card {
+        background: var(--card-bg);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--card-shadow);
+        transition: var(--transition);
+        position: relative;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+      }
+
+      .project-image {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .project-card:hover .project-image img {
+        transform: scale(1.1);
+      }
+
+      .project-content {
+        padding: 25px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project-title {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        color: var(--primary);
+      }
+
+      .project-description {
+        color: var(--text-secondary);
+        margin-bottom: 20px;
+        flex-grow: 1;
+      }
+
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 20px;
+      }
+
+      .tech-tag {
+        background: rgba(255, 75, 43, 0.1);
+        color: var(--primary);
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+      }
+
+      .project-links {
+        display: flex;
+        gap: 15px;
+      }
+
+      .project-link {
+        color: var(--text);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        transition: var(--transition);
+      }
+
+      .project-link:hover {
+        color: var(--primary);
+      }
+
+      /* Contact Section */
+      .contact-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .contact-info {
+        background: var(--card-bg);
+        padding: 40px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--card-shadow);
+      }
+
+      .contact-info h3 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+        color: var(--primary);
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 25px;
+        gap: 15px;
+      }
+
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+        background: rgba(255, 75, 43, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        font-size: 1.2rem;
+      }
+
+      .contact-details h4 {
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+      }
+
+      .contact-details p,
+      .contact-details a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .contact-details a:hover {
+        color: var(--primary);
+      }
+
+      .socials {
+        display: flex;
+        gap: 15px;
+        margin-top: 40px;
+      }
+
+      .social-link {
+        width: 45px;
+        height: 45px;
+        background: var(--card-bg);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text);
+        font-size: 1.2rem;
+        transition: var(--transition);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .social-link:hover {
+        background: var(--primary);
+        color: white;
+        transform: translateY(-5px);
+      }
+
+      .contact-form {
+        background: var(--card-bg);
+        padding: 40px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--card-shadow);
+      }
+
+      .contact-form h3 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+        color: var(--primary);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--text-secondary);
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+        color: var(--text);
+        font-family: "Poppins", sans-serif;
+        transition: var(--transition);
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: var(--primary);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      textarea.form-control {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .submit-btn {
+        background: var(--primary-gradient);
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        font-family: "Poppins", sans-serif;
+        display: inline-block;
+      }
+
+      .submit-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(255, 75, 43, 0.4);
+      }
+
+      /* Form status messages */
+      .form-status {
+        padding: 15px;
+        border-radius: 5px;
+        margin-top: 20px;
+        display: none;
+      }
+
+      .form-success {
+        background: rgba(39, 174, 96, 0.2);
+        color: #2ecc71;
+        border: 1px solid #2ecc71;
+      }
+
+      .form-error {
+        background: rgba(231, 76, 60, 0.2);
+        color: #e74c3c;
+        border: 1px solid #e74c3c;
+      }
+
+      /* Footer */
       footer {
-        padding: 30px;
-        background: #1e1e1e;
-        margin-top: 50px;
-        font-size: 1rem;
+        background: var(--card-bg);
+        padding: 50px 20px 20px;
+        text-align: center;
+        position: relative;
       }
+
+      footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: var(--primary-gradient);
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-logo {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 20px;
+        display: inline-block;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin: 30px 0;
+      }
+
+      .footer-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+        color: var(--primary);
+      }
+
+      .copyright {
+        color: var(--text-secondary);
+        margin-top: 30px;
+        font-size: 0.9rem;
+      }
+
+      /* Animations */
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0) translateX(-50%);
+        }
+        40% {
+          transform: translateY(-20px) translateX(-50%);
+        }
+        60% {
+          transform: translateY(-10px) translateX(-50%);
+        }
+      }
+
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        .about-container,
+        .contact-container {
+          grid-template-columns: 1fr;
+        }
+
+        .hero h1 {
+          font-size: 3rem;
+        }
+
+        .hero p {
+          font-size: 1.2rem;
+        }
+      }
+
       @media (max-width: 768px) {
-        header h1 {
+        nav ul {
+          position: fixed;
+          top: 70px;
+          left: 0;
+          width: 100%;
+          background: var(--nav-bg);
+          flex-direction: column;
+          align-items: center;
+          padding: 20px 0;
+          gap: 15px;
+          transform: translateY(-150%);
+          transition: transform 0.3s ease;
+          box-shadow: var(--shadow);
+          backdrop-filter: blur(10px);
+        }
+
+        nav ul.active {
+          transform: translateY(0);
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        section {
+          padding: 70px 20px;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero h1 {
           font-size: 2rem;
         }
-        section {
-          padding: 60px 10px;
+
+        .hero p {
+          font-size: 1rem;
         }
-        .card {
-          padding: 20px;
+
+        section h2 {
+          font-size: 2rem;
+        }
+
+        .contact-info,
+        .contact-form {
+          padding: 25px;
         }
       }
     </style>
   </head>
   <body>
-    <header>
-      <h1>Hamza Elshennawy</h1>
-      <p>
-        Data Architect | Full-Stack Developer | IoT Enthusiast | Mobile
-        developer
-      </p>
-    </header>
+    <!-- Navigation -->
+    <nav id="navbar">
+      <div class="nav-container">
+        <a href="#" class="logo">Hamza Elshennawy</a>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul id="nav-menu">
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
 
-    <section id="about" class="card">
-      <h2>About Me</h2>
-      <p>
-        I'm a Data Architect and Data Flow Engineer at Aria Technologies,
-        specializing in MongoDB and automation for robotic arms in factories.
-        Passionate about full-stack development, IoT, and machine learning.
-      </p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>Hamza Elshennawy</h1>
+        <p>
+          Data Architect | Full-Stack Developer | IoT Enthusiast | Mobile
+          Developer
+        </p>
+      </div>
+      <a href="#about" class="scroll-down">
+        <i class="fas fa-chevron-down"></i>
+      </a>
     </section>
 
+    <!-- About Section -->
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="about-container">
+        <div class="about-image fade-in">
+          <img src="/photos/me.png" alt="Hamza Elshennawy" />
+        </div>
+        <div class="about-content fade-in">
+          <h3>Data Architect & Full-Stack Developer</h3>
+          <p>
+            I'm a Data Architect and Data Flow Engineer at Aria Technologies,
+            specializing in MongoDB and automation for robotic arms in
+            factories. My passion lies in creating efficient data pipelines and
+            developing innovative solutions.
+          </p>
+          <p>
+            With expertise in both frontend and backend technologies, I build
+            comprehensive systems that solve real-world problems. I'm
+            particularly interested in IoT applications and machine learning
+            integration.
+          </p>
+          <div class="skills">
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">Next.js</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">IoT</span>
+            <span class="skill-tag">MQTT</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">C#</span>
+            <span class="skill-tag">Flutter</span>
+            <span class="skill-tag">Data Architecture</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
     <section id="projects">
       <h2>Projects</h2>
-      <div class="grid">
-        <div class="card">
-          <p>
-            <strong>Internal Tool for Production Line Data</strong> - Real-time
-            visualization using MongoDB, MQTT, Next.js, PostgreSQL.
-          </p>
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card fade-in">
+          <div class="project-image">
+            <img src="/photos/aria.png" alt="Production Line Data Tool" />
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">
+              Internal Tool for Production Line Data
+            </h3>
+            <p class="project-description">
+              Real-time visualization dashboard for factory production data,
+              featuring live updates and comprehensive analytics.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">MQTT</span>
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">PostgreSQL</span>
+            </div>
+            <!--<div class="project-links">
+              <a href="#" class="project-link"
+                ><i class="fas fa-external-link-alt"></i> View Project</a
+              >
+            </div>-->
+          </div>
         </div>
-        <div class="card">
-          <p>
-            <strong>Agrly</strong> - A rental app for North Coast apartments.
-          </p>
+
+        <!-- Project 2 -->
+        <div class="project-card fade-in">
+          <div class="project-image">
+            <img src="/photos/agrly_logo.png" alt="Agrly App" />
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Agrly</h3>
+            <p class="project-description">
+              A comprehensive rental application for North Coast apartments,
+              streamlining the rental process for both owners and tenants.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Flutter</span>
+              <span class="tech-tag">Nextjs</span>
+              <span class="tech-tag">PostgreSQL</span>
+            </div>
+            <!--<div class="project-links">
+              <a href="#" class="project-link"
+                ><i class="fas fa-external-link-alt"></i> View Project</a
+              >
+            </div>-->
+          </div>
         </div>
-        <div class="card">
-          <p>
-            <strong>AALAA Designs</strong> - E-commerce platform using Next.js,
-            PostgreSQL, ShadCN.
-          </p>
-        </div>
-        <div class="card">
-          <p>
-            <strong>Captive Portal</strong> - Custom Wi-Fi authentication system
-            for a coffee shop.
-          </p>
+
+        <!-- Project 3 -->
+        <div class="project-card fade-in">
+          <div class="project-image">
+            <img src="/photos/aalaadesigns.png" alt="AALAA Designs" />
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">AALAA Designs</h3>
+            <p class="project-description">
+              Modern e-commerce platform for a design brand, featuring product
+              customization, user accounts, and secure payment processing.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">ShadCN</span>
+            </div>
+            <!--<div class="project-links">
+              <a href="#" class="project-link"
+                ><i class="fas fa-external-link-alt"></i> View Project</a
+              >
+            </div>-->
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="card">
-      <h2>Contact</h2>
-      <p>
-        Email:
-        <a href="mailto:h.elshennawy@nu.edu.eg">h.elshennawy@nu.edu.eg</a>
-      </p>
-      <div class="socials">
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Get In Touch</h2>
+      <div class="contact-container">
+        <div class="contact-info fade-in">
+          <h3>Contact Information</h3>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Email</h4>
+              <a href="mailto:elshennawyhamza@gmail.com"
+                >elshennawyhamza@gmail.com</a
+              >
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Location</h4>
+              <p>Cairo, Egypt</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Work</h4>
+              <p>Aria Technologies</p>
+            </div>
+          </div>
+          <div class="socials">
+            <a
+              href="https://www.linkedin.com/in/hamza-elshennawy-939768127/"
+              target="_blank"
+              class="social-link"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a
+              href="https://www.github.com/HamzaElshennawy"
+              target="_blank"
+              class="social-link"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="https://www.fb.com/hamza.elshennawy.9"
+              class="social-link"
+              target="_blank"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/elshennawy.exe/"
+              class="social-link"
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+        <!--<div class="contact-form fade-in">
+          <h3>Send Me a Message</h3>
+          <form
+            id="contact-form"
+            action="https://formspree.io/f/elshennawyhamza@gmail.com"
+            method="POST"
+          >
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                class="form-control"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+            <div id="form-success" class="form-status form-success">
+              Thank you! Your message has been sent successfully.
+            </div>
+            <div id="form-error" class="form-status form-error">
+              Oops! Something went wrong. Please try again later.
+            </div>
+          </form>
+        </div>-->
       </div>
     </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <a href="#" class="footer-logo">Hamza Elshennawy</a>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <p class="copyright">
+          &copy; 2023 Hamza Elshennawy. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const navMenu = document.getElementById("nav-menu");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+        mobileMenuBtn.innerHTML = navMenu.classList.contains("active")
+          ? '<i class="fas fa-times"></i>'
+          : '<i class="fas fa-bars"></i>';
+      });
+
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll("#nav-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navMenu.classList.remove("active");
+          mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+      });
+
+      // Navbar scroll effect
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 100) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Smooth Scroll for all links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Scroll Animation for elements with fade-in class
+      const fadeElements = document.querySelectorAll(".fade-in");
+
+      const fadeObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              fadeObserver.unobserve(entry.target); // Stop observing once visible
+            }
+          });
+        },
+        { threshold: 0.2 } // Trigger when 20% of the element is visible
+      );
+
+      fadeElements.forEach((element) => {
+        fadeObserver.observe(element);
+      });
+
+      // Contact Form Submission with Formspree
+      const contactForm = document.getElementById("contact-form");
+      const formSuccess = document.getElementById("form-success");
+      const formError = document.getElementById("form-error");
+
+      if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const formData = new FormData(contactForm);
+
+          fetch("https://formspree.io/f/elshennawyhamza@gmail.com", {
+            method: "POST",
+            body: formData,
+            headers: {
+              Accept: "application/json",
+            },
+          })
+            .then((response) => {
+              if (response.ok) {
+                // Show success message
+                formSuccess.style.display = "block";
+                formError.style.display = "none";
+                // Reset the form
+                contactForm.reset();
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                  formSuccess.style.display = "none";
+                }, 5000);
+              } else {
+                throw new Error("Form submission failed");
+              }
+            })
+            .catch((error) => {
+              // Show error message
+              formError.style.display = "block";
+              formSuccess.style.display = "none";
+              // Hide error message after 5 seconds
+              setTimeout(() => {
+                formError.style.display = "none";
+              }, 5000);
+              console.error("Error:", error);
+            });
+        });
+      }
+    </script>
   </body>
 </html>
