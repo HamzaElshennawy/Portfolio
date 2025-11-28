@@ -1,2 +1,6 @@
 node_modules/
 .env
+*.js
+/next
+.next
+next-env.d.ts
