@@ -4,22 +4,28 @@ import { motion } from "framer-motion";
 
 export default function About() {
     const skills = [
-        "MongoDB",
+        "TypeScript",
         "Next.js",
-        "PostgreSQL",
-        "IoT",
-        "MQTT",
         "React",
         "Node.js",
-        "C#",
+        "C# / .NET",
+        "Python",
         "Flutter",
+        "MongoDB",
+        "PostgreSQL",
+        "Supabase",
+        "Firebase",
+        "MQTT",
+        "WebSockets",
+        "IoT",
+        "RAG / LLMs",
         "Data Architecture",
     ];
 
     return (
         <section
             id="about"
-            className="py-20 px-6 bg-[#0a0a0a]"
+            className="py-20 px-6 bg-[#0a0a0a] scroll-mt-16"
         >
             <div className="max-w-3xl mx-auto">
                 <motion.div
@@ -33,16 +39,16 @@ export default function About() {
 
                     <div className="prose prose-invert max-w-none text-gray-400">
                         <p className="mb-6">
-                            I'm a Data Architect and Data Flow Engineer at Aria
+                            I&apos;m a Data Architect and Data Flow Engineer at Aria
                             Technologies, specializing in MongoDB and automation
                             for robotic arms in factories.
                         </p>
                         <p className="mb-8">
                             With expertise in both frontend and backend
                             technologies, I build comprehensive systems that
-                            solve real-world problems. I'm particularly
-                            interested in IoT applications and machine learning
-                            integration.
+                            solve real-world problems, from cross-platform
+                            mobile apps and SaaS platforms to AI assistants
+                            powered by retrieval-augmented generation.
                         </p>
                     </div>
 

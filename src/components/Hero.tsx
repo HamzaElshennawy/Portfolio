@@ -11,6 +11,9 @@ export default function Hero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                 >
+                    <p className="text-sm font-medium text-blue-400 mb-4">
+                        Hi, I&apos;m Hamza Elshennawy
+                    </p>
                     <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-white">
                         Data Architect & <br />
                         <span className="text-gray-400">
@@ -18,12 +21,13 @@ export default function Hero() {
                         </span>
                     </h1>
                     <p className="text-lg text-gray-400 max-w-xl leading-relaxed mb-8">
-                        I build efficient data pipelines and robust web
-                        applications. Specializing in MongoDB, IoT, and modern
-                        web technologies.
+                        I build efficient data pipelines, robust web and
+                        mobile applications, and AI-powered tools.
+                        Specializing in MongoDB, IoT, and modern web
+                        technologies.
                     </p>
 
-                    <div className="flex gap-4">
+                    <div className="flex flex-wrap gap-4">
                         <a
                             href="#projects"
                             className="px-6 py-2 bg-white text-black rounded-md font-medium hover:bg-gray-200 transition-colors"

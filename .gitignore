@@ -1,6 +1,7 @@
 node_modules/
 .env
-*.js
-/next
-.next
+.env*.local
+.next/
+out/
 next-env.d.ts
+*.tsbuildinfo
